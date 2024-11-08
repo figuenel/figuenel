@@ -1,0 +1,54 @@
+import math
+
+def volumen_cilindro(diametro, altura):
+    """Calcula el volumen de un cilindro dado el diámetro y la altura."""
+    radio = diametro / 2
+    volumen = math.pi * radio ** 2 * altura
+    return volumen
+
+def volumen_prisma_triangulo(largo, ancho, alto):
+    """Calcula el volumen de un prisma triangular dado las dimensiones de la base y la altura."""
+    # El área de la base triangular
+    area_base = (largo * ancho) / 2
+    volumen = area_base * alto
+    return volumen
+
+def volumen_cono(radio, altura):
+    """Calcula el volumen de un cono dado el radio de la base y la altura."""
+    volumen = (1/3) * math.pi * radio ** 2 * altura
+    return volumen
+
+def main():
+    # Dimensiones de los empaques
+    cilindro_diametro = 8  # en cm
+    cilindro_altura = 15    # en cm
+    
+    prisma_largo = 12  # en cm
+    prisma_ancho = 8   # en cm
+    prisma_alto = 10   # en cm
+    
+    cono_radio = 6     # en cm
+    cono_altura = 12   # en cm
+    
+    # Calcular volúmenes
+    volumen_cilindro_val = volumen_cilindro(cilindro_diametro, cilindro_altura)
+    volumen_prisma_val = volumen_prisma_triangulo(prisma_largo, prisma_ancho, prisma_alto)
+    volumen_cono_val = volumen_cono(cono_radio, cono_altura)
+    
+    # Mostrar los volúmenes
+    print(f"Volumen del cilindro: {volumen_cilindro_val:.2f} cm³")
+    print(f"Volumen del empaque triangular: {volumen_prisma_val:.2f} cm³")
+    print(f"Volumen del cono: {volumen_cono_val:.2f} cm³")
+    
+    # Determinar el empaque con mayor volumen
+    max_volumen = max(volumen_cilindro_val, volumen_prisma_val, volumen_cono_val)
+    
+    if max_volumen == volumen_cilindro_val:
+        print("\nEl empaque con mayor volumen es el Cilindro.")
+    elif max_volumen == volumen_prisma_val:
+        print("\nEl empaque con mayor volumen es el Empaque Triangular.")
+    else:
+        print("\nEl empaque con mayor volumen es el Cono.")
+
+# Ejecutar el programa
+main()
