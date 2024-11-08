@@ -1,0 +1,34 @@
+import math
+
+def calcular_area_pizza(diametro):
+    """Calcula el área de la pizza dado su diámetro."""
+    radio = diametro / 2
+    area = math.pi * radio ** 2
+    return area
+
+def pizza_mas_grande(pizzas):
+    """Compara las pizzas y devuelve la más grande según el área."""
+    pizza_grande = max(pizzas, key=lambda pizza: pizza['area'])
+    return pizza_grande
+
+def main():
+    # Definir las pizzas con su nombre y diámetro
+    pizzas = [
+        {"nombre": "Pequeña", "diametro": 25},
+        {"nombre": "Mediana", "diametro": 30},
+        {"nombre": "Grande", "diametro": 45}
+    ]
+    
+    # Calcular el área de cada pizza
+    for pizza in pizzas:
+        pizza['area'] = calcular_area_pizza(pizza['diametro'])
+    
+    # Encontrar la pizza más grande
+    pizza_grande = pizza_mas_grande(pizzas)
+    
+    # Mostrar el resultado
+    print(f"La pizza más grande es la {pizza_grande['nombre']} con un diámetro de {pizza_grande['diametro']} cm.")
+    print(f"Área: {pizza_grande['area']:.2f} cm²")
+
+# Ejecutar el programa
+main()
