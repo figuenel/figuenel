@@ -1,0 +1,13 @@
+def imprimir_meses_del_ano():
+    # Lista con los meses del año
+    meses = [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ]
+    
+    # Imprimir cada mes del año
+    for mes in meses:
+        print(mes)
+
+# Ejecutar el programa
+imprimir_meses_del_ano()
