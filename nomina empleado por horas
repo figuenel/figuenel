@@ -1,0 +1,47 @@
+def calcular_salario(horas_trabajadas, tarifa_por_hora):
+    # Definir el límite de horas normales
+    HORAS_NORMALS = 40
+    TARIFA_EXTRA = 1.5  # Las horas extra se pagan al 50% más
+
+    # Calcular el salario base
+    if horas_trabajadas <= HORAS_NORMALS:
+        salario = horas_trabajadas * tarifa_por_hora
+    else:
+        # Si el empleado trabaja más de 40 horas, las horas extra se pagan al 150%
+        horas_extra = horas_trabajadas - HORAS_NORMALS
+        salario = (HORAS_NORMALS * tarifa_por_hora) + (horas_extra * tarifa_por_hora * TARIFA_EXTRA)
+
+    return salario
+
+def mostrar_detalles(nombre, horas_trabajadas, tarifa_por_hora, salario):
+    print(f"\nDetalles de la nómina para {nombre}:")
+    print(f"Horas trabajadas: {horas_trabajadas} horas")
+    print(f"Tarifa por hora: ${tarifa_por_hora:.2f}")
+    print(f"Salario total: ${salario:.2f}")
+
+def obtener_datos_empleado():
+    nombre = input("Introduce el nombre del empleado: ")
+    try:
+        horas_trabajadas = float(input("Introduce las horas trabajadas en la semana: "))
+        tarifa_por_hora = float(input("Introduce la tarifa por hora: "))
+    except ValueError:
+        print("Por favor, ingresa valores numéricos válidos.")
+        return None, None, None
+    
+    return nombre, horas_trabajadas, tarifa_por_hora
+
+def main():
+    # Obtener datos del empleado
+    nombre, horas_trabajadas, tarifa_por_hora = obtener_datos_empleado()
+    
+    if nombre is None or horas_trabajadas is None or tarifa_por_hora is None:
+        return
+    
+    # Calcular el salario
+    salario = calcular_salario(horas_trabajadas, tarifa_por_hora)
+    
+    # Mostrar los detalles de la nómina
+    mostrar_detalles(nombre, horas_trabajadas, tarifa_por_hora, salario)
+
+# Ejecutar el programa
+main()
