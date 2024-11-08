@@ -1,0 +1,31 @@
+def transformar_texto(texto):
+    # Diccionario para reemplazar las vocales
+    reemplazos = {'a': '4', 'e': '3', 'i': '1', 'o': '0', 'u': 'u'}
+    
+    # Variable para almacenar el texto transformado
+    texto_transformado = ""
+    
+    # Recorrer cada carácter del texto
+    for char in texto:
+        # Si es una vocal en minúscula, la reemplazamos con el valor del diccionario
+        if char.lower() in reemplazos:
+            texto_transformado += reemplazos[char.lower()]
+        # Si no es una vocal, lo convertimos a mayúscula
+        else:
+            texto_transformado += char.upper()
+    
+    return texto_transformado
+
+def main():
+    # Pedir al usuario que ingrese un texto
+    texto_usuario = input("Introduce un texto: ")
+    
+    # Transformar el texto
+    resultado = transformar_texto(texto_usuario)
+    
+    # Mostrar el texto transformado
+    print("Texto transformado: ")
+    print(resultado)
+
+# Ejecutar el programa
+main()
