@@ -1,0 +1,10 @@
+def imprimir_dias_semana():
+    # Lista de los días de la semana
+    dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+    
+    # Imprimir cada día de la semana
+    for dia in dias_semana:
+        print(dia)
+
+# Ejecutar el programa
+imprimir_dias_semana()
